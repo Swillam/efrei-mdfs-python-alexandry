@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <a href="{{ url_for('edit', book_id=book['id']) }}">
+        <h2>Edit</h2>
+    </a>
+    <h1>{% block title %} {{ book['title'] }} {% endblock %}</h1>
+    <h2>Author</h2>
+    <p>{{ book['author'] }}</p>
+    <hr>
+{% endblock %}

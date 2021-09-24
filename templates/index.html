@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+
+    <h1>{% block title %} Welcome to my alexandry library {% endblock %}</h1>
+    <div class="newBook">
+        <a href="{{ url_for('edit', book={}) }}"> New Book</a>
+    </div>
+    {% for book in books %}
+        <a href="{{ url_for('book', book_id=book['id']) }}">
+            <h2>{{ book['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ book['author'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
